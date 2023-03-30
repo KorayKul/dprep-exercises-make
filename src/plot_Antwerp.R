@@ -5,9 +5,10 @@ library(reshape2)
 # PLOT ANTWERP 
 
 ## import the data from `gen/analysis/pivot_table`
-df_pivot <- read_csv("pivot_table.csv")
+df_pivot <- read_csv("temp/pivot_table.csv")
 
-pdf("plot_Antwerp.pdf")
+dir.create("output")
+pdf("output/plot_Antwerp.pdf")
 plot(x = df_pivot$date, 
      y = df_pivot$Stadspark, 
      col = "red", 

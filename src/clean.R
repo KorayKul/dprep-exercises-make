@@ -3,8 +3,8 @@ library(tidyverse)
 library(reshape2)
 # CLEAN DATA 
 
-reviews <- read_csv("reviews.csv")
-listings <- read_csv("listings.csv")
+reviews <- read_csv("data/reviews.csv")
+listings <- read_csv("data/listings.csv")
 
 ## filter for reviews published since 01/01/2015
 reviews_filtered <- reviews %>% filter(date > "2015-01-01")
@@ -25,4 +25,5 @@ df_grouped <- df_merged %>%
 df_grouped <- df_grouped %>% mutate(date = as.Date(paste0(year, "-", month, "-01")))
 
 ## store the final data frame in `gen/data-preparation` as `aggregated_df.csv`
-write_csv(df_grouped, "aggregated_df.csv")
+dir.create("temp")
+write_csv(df_grouped, "temp/aggregated_df.csv")
